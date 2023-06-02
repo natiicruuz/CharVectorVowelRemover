@@ -10,24 +10,18 @@ Elimine del array la vocal “i”. Imprima el resultado como cadena concatenada.
  Se realizará un test unitario para probar el correcto funcionamiento.
 */
 public class Cadena {
-	String cadena;// almacene en una variable la cadena,“Este es mi primer ejercicio”
-	
-	public String retornaCadenaSinLetraI(String cad) {
-		
-		// Divida esa cadena de caracteres por letras
-		String[] cadeDividida = cad.split("");
-		
-		
-		StringBuilder sb = new StringBuilder();
-		
-	    for (int i = 0; i<cadeDividida.length; i++) {
-	    	// Elimine del array la vocal “i”
-	    	if(!cadeDividida[i].toLowerCase().equals("i")) {
-	    		sb.append(cadeDividida[i]);
-	    	}
-	    }
-	    //inserte en un vector(array) de tipo char.
-	    char [] charArr = sb.toString().toCharArray();
-	    return new String(charArr);
-	}
+    public String retornaCadenaSinLetraI(String cad) { //Metodo que recibe un Sting como parametro
+        StringBuilder sb = new StringBuilder();
+
+        for (char c : cad.toCharArray()) { //Iteramos sobre cada uno de los elementos del String convirtiendolo en un array de Char
+            // Eliminar la vocal 'i'
+            if (Character.toLowerCase(c) != 'i') { //Si el elemento por el cual iteramos NO es 'i', lo agregamos a nuestro String Builder
+                sb.append(c);
+            }
+        }
+
+        return sb.toString(); //Retorna el resultado como cadena concatenada. 
+    }
 }
+
+
